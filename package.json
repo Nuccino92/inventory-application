@@ -1,0 +1,23 @@
+{
+  "name": "inventory-application",
+  "version": "1.0.0",
+  "description": "An inventory application with node js and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nuccino92/inventory-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nuccino92/inventory-application/issues"
+  },
+  "homepage": "https://github.com/Nuccino92/inventory-application#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "lodash": "^4.17.21"
+  }
+}
