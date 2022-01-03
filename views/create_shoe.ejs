@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>Create a Hat</h1>
+    <a href="/">Homepage</a>
+    <form action="/shoes" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+
+      <label for="size">Size</label>
+      <select id="size" name="size" required>
+        <option value="5.5">5.5</option>
+        <option value="6">6</option>
+        <option value="6.5">6.5</option>
+        <option value="7">7</option>
+        <option value="7.5">7.5</option>
+        <option value="8">8</option>
+        <option value="8.5">8.5</option>
+        <option value="9">9</option>
+        <option value="9.5">9.5</option>
+        <option value="10">10</option>
+        <option value="10.5">10.5</option>
+        <option value="11">11</option>
+        <option value="11.5">11.5</option>
+        <option value="12">12</option>
+        <option value="12.5">12.5</option>
+        <option value="13">13</option>
+        <option value="13.5">13.5</option>
+        <option value="14">14</option>
+      </select>
+
+      <label for="image">Image (url)</label>
+      <input type="text" id="image" name="image" />
+
+      <label for="type">Type</label>
+      <select id="type" name="type" required>
+        <option value="Running">Running</option>
+        <option value="Dress">Dress</option>
+        <option value="Casual">Casual</option>
+        <option value="Boots">Boots</option>
+      </select>
+
+      <button>Submit</button>
+    </form>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

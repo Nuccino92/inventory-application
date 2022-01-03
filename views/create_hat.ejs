@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>Create a Hat</h1>
+    <a href="/">Homepage</a>
+    <form action="/hats" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="M">M</option>
+        <option value="F">F</option>
+      </select>
+
+      <label for="size">Size</label>
+      <select id="size" name="size" required>
+        <option value="6 3/4">6 3/4</option>
+        <option value="6 7/8">6 7/8</option>
+        <option value="7">7</option>
+        <option value="7 1/8">7 1/8</option>
+        <option value="7 1/4">7 1/4</option>
+        <option value="7 3/8">7 3/8</option>
+        <option value="7 1/2">7 1/2</option>
+        <option value="7 5/8">7 5/8</option>
+        <option value="7 3/4">7 3/4</option>
+        <option value="7 7/8">7 7/8</option>
+        <option value="8">8</option>
+      </select>
+
+      <label for="image">Image (url)</label>
+      <!-- <input type="text" id="image" name="image" required /> -->
+      <input type="file" id="image" name="image" required />
+
+      <button>Submit</button>
+    </form>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>
