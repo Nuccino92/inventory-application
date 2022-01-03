@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.image {
+  height: 150px;
+  width: 150px;
+}
