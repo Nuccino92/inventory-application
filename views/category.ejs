@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+  
+    <%- include('./partials/nav.ejs') %>
+    <h1><%= title  %> </h1>
+    <% if (result.length > 0) { %> 
+        <% result.forEach(res => { %> 
+            <h3>name: <%= res.name %> </h3>
+            <img class="image" src="<% res.image %> "/>
+            <p>gender: <%= res.gender %> </p>
+            <p>size: <%= res.size %> </p>
+            <% if (res.type != undefined) { %> 
+                <p>type: <%= res.type %> </p>
+            <% } %> 
+    <% }) %> 
+    <% } else { %>  
+        <p>there are no items for display</p>
+        <% } %> 
+        <a href='<%= path %>' >Create</a>
+       <a href="/">Homepage</a>
+  <%- include('./partials/footer.ejs') %>
+</html>
