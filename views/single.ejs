@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <h3>Name: <%= result.name %></h3>
+    <img class="image" src="<% result.image %> " />
+    <p>Gender: <%= result.gender %></p>
+    <p>Size: <%= result.size %></p>
+    <% if (result.type != undefined) { %>
+    <p>Type: <%= result.type %></p>
+    <% } %>
+
+    <!-- delete request step 1: -->
+    <a class="delete-btn" data-doc="<%= single %>/<%= result._id %>">delete</a>
+    <%- include('./partials/footer.ejs') %>
+
+    <script>
+      const deleteBtn = document.querySelector("a.delete-btn");
+
+      deleteBtn.addEventListener("click", (e) => {
+        const endpoint = `${deleteBtn.dataset.doc}`;
+
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          // delete request step 4:
+          .then((response) => response.json())
+          // delete request step 5:
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+    </script>
+  </body>
+</html>
