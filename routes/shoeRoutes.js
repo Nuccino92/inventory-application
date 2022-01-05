@@ -1,63 +1,16 @@
 const express = require("express");
-const Shoe = require("../models/shoe");
 const router = express.Router();
+const shoeController = require("../controllers/shoeController");
 
-router.get("/", (req, res) => {
-  Shoe.find()
-    .then((result) => {
-      res.render("category", {
-        title: "Shoes",
-        result: result,
-        path: "/shoes/create",
-        single: "/shoes",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.get("/", shoeController.shoe_index);
 
-router.get("/create", (req, res) => {
-  res.render("create_shoe", { title: "Create" });
-});
+router.get("/create", shoeController.shoe_create_get);
 
-router.post("/", (req, res) => {
-  const shoe = new Shoe(req.body);
-  shoe
-    .save()
-    .then((result) => {
-      res.redirect("/shoes");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.post("/", shoeController.shoe_create_post);
 
-router.get("/:id", (req, res) => {
-  Shoe.findById(req.params.id)
-    .then((result) => {
-      res.render("single", {
-        result: result,
-        title: "Shoe Details",
-        single: "/shoes",
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.get("/:id", shoeController.shoe_details);
 
 // delete request step 2;
-router.delete("/:id", (req, res) => {
-  Shoe.findByIdAndDelete(req.params.id)
-    // delete request step 3:
-    .then((result) => {
-      // redirect this way because delete request was on front end
-      res.json({ redirect: "/shoes" });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+router.delete("/:id", shoeController.shoe_delete);
 
 module.exports = router;
